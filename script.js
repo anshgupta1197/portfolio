@@ -1,6 +1,6 @@
 const revealTargets = document.querySelectorAll('.reveal');
 const recruiterToggle = document.getElementById('toggleRecruiterMode');
-const copyEmailButton = document.getElementById('copyEmail');
+const copyButtons = document.querySelectorAll('[data-copy-text]');
 const copyStatus = document.getElementById('copyStatus');
 const experienceYears = document.getElementById('experienceYears');
 const focusValue = document.getElementById('focusValue');
@@ -28,18 +28,28 @@ recruiterToggle.addEventListener('click', () => {
   recruiterToggle.textContent = `Recruiter Mode: ${recruiterMode ? 'On' : 'Off'}`;
 });
 
-copyEmailButton.addEventListener('click', async () => {
-  const email = 'guptaanshika987@gmail.com';
-  try {
-    await navigator.clipboard.writeText(email);
-    copyStatus.textContent = 'Email copied to clipboard.';
-  } catch (error) {
-    copyStatus.textContent = 'Copy failed. Please copy manually.';
-  }
+copyButtons.forEach((button) => {
+  button.addEventListener('click', async () => {
+    const copyText = button.getAttribute('data-copy-text') || '';
+    const copyLabel = button.getAttribute('data-copy-label') || 'Text';
 
-  setTimeout(() => {
-    copyStatus.textContent = '';
-  }, 2200);
+    try {
+      await navigator.clipboard.writeText(copyText);
+      if (copyStatus) {
+        copyStatus.textContent = `${copyLabel} copied to clipboard.`;
+      }
+    } catch (error) {
+      if (copyStatus) {
+        copyStatus.textContent = 'Copy failed. Please copy manually.';
+      }
+    }
+
+    if (copyStatus) {
+      setTimeout(() => {
+        copyStatus.textContent = '';
+      }, 2200);
+    }
+  });
 });
 
 if (contactForm) {

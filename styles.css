@@ -581,6 +581,10 @@ h1 span {
   grid-column: span 6;
 }
 
+.certifications-card {
+  grid-column: span 12;
+}
+
 .actions-card {
   grid-column: span 12;
 }
@@ -630,6 +634,60 @@ h1 span {
 
 .highlights-card h3 {
   margin-bottom: 0.85rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.certification-tile {
+  border-radius: 16px;
+  padding: 0.95rem;
+  border: 1px solid rgba(13, 107, 104, 0.16);
+  background: linear-gradient(140deg, rgba(13, 107, 104, 0.08), rgba(255, 255, 255, 0.72));
+  display: grid;
+  gap: 0.55rem;
+}
+
+.certification-tile h4 {
+  margin: 0;
+}
+
+.certification-tile p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.certification-tile a {
+  width: fit-content;
+  color: var(--accent-2);
+  text-decoration-color: rgba(13, 107, 104, 0.5);
+  text-underline-offset: 4px;
+  font-weight: 700;
+}
+
+.cert-status {
+  width: fit-content;
+  margin: 0;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+}
+
+.cert-status.completed {
+  background: rgba(13, 107, 104, 0.14);
+  color: var(--accent-2);
+}
+
+.cert-status.in-progress {
+  background: rgba(243, 181, 74, 0.24);
+  color: #7b4e03;
 }
 
 .timeline {
@@ -733,6 +791,13 @@ h1 span {
   margin-top: 0.5rem;
 }
 
+.contact-link-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .contact-link-item {
   display: inline-flex;
   align-items: center;
@@ -760,29 +825,29 @@ h1 span {
   color: var(--accent-2);
 }
 
-.copy-email-btn {
+.copy-inline-btn {
   cursor: pointer;
   font-family: inherit;
-  background: rgba(13, 107, 104, 0.06);
-  border: 1px dashed rgba(13, 107, 104, 0.2);
-}
-
-.copy-email-btn:hover {
-  border-style: solid;
-}
-
-.contact-phone {
+  color: var(--accent-2);
+  background: rgba(13, 107, 104, 0.08);
+  border: 1px dashed rgba(13, 107, 104, 0.26);
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-  margin: 0;
-  padding: 0 0.2rem;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
 
-.contact-phone svg {
-  color: var(--accent-2);
+.copy-inline-btn:hover {
+  border-style: solid;
+  background: rgba(13, 107, 104, 0.16);
+  transform: translateX(2px);
+}
+
+.copy-inline-btn svg {
   flex-shrink: 0;
 }
 
@@ -930,6 +995,17 @@ h1 span {
   grid-column: span 3;
 }
 
+.portfolio-grid-4 .project-card,
+.portfolio-grid-4 .featured-project,
+.portfolio-grid-4 .project-card:not(.featured-project) {
+  grid-column: span 6;
+}
+
+.portfolio-grid-4 .tilt-left,
+.portfolio-grid-4 .tilt-right {
+  margin-top: 0;
+}
+
 .tilt-left {
   margin-top: 1.25rem;
 }
@@ -1018,6 +1094,7 @@ footer {
 
   .mini-cards,
   .cheat-grid,
+  .certifications-grid,
   .form-grid {
     grid-template-columns: 1fr;
   }
