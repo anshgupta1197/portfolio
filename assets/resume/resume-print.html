@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anshika Gupta – Resume</title>
+  <style>
+    /* ── Screen preview ───────────────────────────────────────────── */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', Arial, sans-serif;
+      background: #e8e8e8;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      background: #ffffff;
+      width: 794px;
+      min-height: 1123px;
+      padding: 42px 52px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.18);
+    }
+
+    /* ── Typography ─────────────────────────────────────────────────── */
+    h1   { font-size: 26px; font-weight: 800; color: #1d4e89; letter-spacing: -0.6px; }
+    h2   { font-size: 11px; font-weight: 500; color: #555; margin-top: 6px; letter-spacing: 0.03em; }
+    h3   { font-size: 10.5px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.01em; }
+    h4   { font-size: 9.8px;  font-weight: 700; color: #1d4e89; margin-top: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 3px; border-bottom: 1.5px solid #1d4e89; }
+    p    { font-size: 10px; color: #333; line-height: 1.55; }
+    ul   { padding-left: 0; list-style: none; }
+    li   { font-size: 10px; color: #333; line-height: 1.55; padding-left: 1.25em; text-indent: -1.1em; margin-bottom: 2px; }
+    li::before { content: "•"; color: #1d4e89; margin-right: 0.4em; font-size: 11px; }
+    a    { color: #1d4e89; text-decoration: none; }
+
+    /* ── Header block ───────────────────────────────────────────────── */
+    .header { margin-bottom: 14px; }
+    .contact-line {
+      font-size: 9.5px;
+      color: #555;
+      margin-top: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      align-items: center;
+    }
+    .contact-line span,
+    .contact-line a { display: inline-flex; align-items: center; gap: 4px; }
+    .contact-line a { color: #1d4e89; text-decoration: none; }
+    .contact-line a:hover { text-decoration: underline; }
+    .contact-line span::before,
+    .contact-line a::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #1d4e89; }
+    .contact-line span:first-child::before,
+    .contact-line a:first-child::before { display: none; }
+    @media print {
+      .contact-line a { color: #1d4e89; text-decoration: none; }
+    }
+
+    /* ── Section headings ───────────────────────────────────────────── */
+    section { margin-top: 12px; }
+    section + section { margin-top: 10px; }
+
+    /* ── Summary ────────────────────────────────────────────────────── */
+    .summary p { margin-top: 5px; }
+
+    /* ── Skills ─────────────────────────────────────────────────────── */
+    .skill-row { display: flex; gap: 6px; margin-top: 4px; font-size: 10px; line-height: 1.45; }
+    .skill-label { font-weight: 700; color: #1d4e89; white-space: nowrap; min-width: 120px; }
+    .skill-val { color: #333; }
+
+    /* ── Experience / Projects ───────────────────────────────────────── */
+    .job { margin-top: 8px; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .job-title { font-size: 10.5px; font-weight: 700; color: #1a1a1a; }
+    .job-dates { font-size: 9.5px; color: #777; white-space: nowrap; }
+    .job-company { font-size: 9.8px; color: #555; margin: 1px 0 4px; }
+    .job ul { margin-top: 3px; }
+
+    /* ── Education ───────────────────────────────────────────────────── */
+    .edu-row { display: flex; justify-content: space-between; margin-top: 5px; }
+    .edu-degree { font-size: 10.5px; font-weight: 700; }
+    .edu-year   { font-size: 9.5px; color: #777; }
+    .edu-detail { font-size: 9.8px; color: #555; margin-top: 1px; }
+
+    /* ── Print bar ──────────────────────────────────────────────────── */
+    .print-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: #1d4e89;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      font-family: 'Plus Jakarta Sans', 'Inter', Arial, sans-serif;
+      font-size: 13px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .print-bar strong { font-weight: 700; letter-spacing: -0.2px; }
+    .print-bar small  { opacity: 0.75; font-size: 11px; margin-left: 10px; }
+    .print-btn {
+      background: #fff;
+      color: #1d4e89;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: background 0.15s;
+    }
+    .print-btn:hover { background: #e8f0fb; }
+    body { padding-top: 52px; }
+
+    /* ── Print rules ─────────────────────────────────────────────────── */
+    @media print {
+      body     { background: #fff; padding: 0; }
+      .page    { width: 100%; min-height: unset; padding: 18mm 20mm; box-shadow: none; }
+      @page    { size: A4; margin: 0; }
+      section  { break-inside: avoid; }
+      .job     { break-inside: avoid; }
+      .print-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="print-bar">
+  <div><strong>Anshika Gupta — Resume</strong><small>Tip: choose&nbsp;"Save as PDF"&nbsp;in the print dialog for best results</small></div>
+  <button class="print-btn" onclick="window.print()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Save as PDF
+  </button>
+</div>
+<div class="page">
+
+  <!-- ── HEADER ─────────────────────────────────────────────────────── -->
+  <div class="header">
+    <h1>Anshika Gupta</h1>
+    <h2>SDET &nbsp;|&nbsp; QA Automation Engineer &nbsp;|&nbsp; 6+ Years Experience</h2>
+    <div class="contact-line">
+      <a href="mailto:guptaanshika987@gmail.com">guptaanshika987@gmail.com</a>
+      <span>+91-9643522326</span>
+      <a href="https://www.linkedin.com/in/professional-anshgupta" target="_blank" rel="noreferrer">linkedin.com/in/professional-anshgupta</a>
+      <span>Noida, India</span>
+    </div>
+  </div>
+
+  <!-- ── PROFESSIONAL SUMMARY ──────────────────────────────────────── -->
+  <section class="summary">
+    <h4>Professional Summary</h4>
+    <p>
+      SDET and QA Automation Specialist with 6+ years of experience designing scalable test automation frameworks for
+      enterprise PLM, SLM, and IIoT applications. Proven expertise in Selenium WebDriver, Java, TestNG, Rest Assured,
+      and Cucumber BDD with CI/CD integration via Jenkins. Delivered a 30% reduction in regression cycle time and validated
+      100+ product features across UI, API, and data layers using Page Object Model (POM) and data-driven testing
+      strategies in Agile Scrum environments at a Fortune 500 organization.
+    </p>
+  </section>
+
+  <!-- ── TECHNICAL SKILLS ───────────────────────────────────────────── -->
+  <section>
+    <h4>Technical Skills</h4>
+    <div class="skill-row"><span class="skill-label">Automation</span><span class="skill-val">Selenium WebDriver, Java, TestNG, Rest Assured, Cucumber (BDD), Page Object Model (POM), Data-Driven Testing</span></div>
+    <div class="skill-row"><span class="skill-label">API &amp; Tools</span><span class="skill-val">Postman, Swagger, REST API, JIRA, Zephyr, Maven, Intellicus</span></div>
+    <div class="skill-row"><span class="skill-label">CI/CD &amp; DevOps</span><span class="skill-val">Jenkins, Kubernetes, Git, Bitbucket, Octopus</span></div>
+    <div class="skill-row"><span class="skill-label">Databases</span><span class="skill-val">SQL, Oracle, Snowflake, SQL Server, DBeaver</span></div>
+    <div class="skill-row"><span class="skill-label">Testing Types</span><span class="skill-val">Regression, Smoke, Sanity, Functional, End-to-End, API Testing</span></div>
+  </section>
+
+  <!-- ── PROFESSIONAL EXPERIENCE ───────────────────────────────────── -->
+  <section>
+    <h4>Professional Experience</h4>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Quality Analyst — Servigistics R&amp;D Team</span>
+        <span class="job-dates">Jul 2022 – Present</span>
+      </div>
+      <div class="job-company">PTC Inc. (Fortune 500 — Global PLM, SLM &amp; IIoT Software Leader) &nbsp;|&nbsp; Noida, India</div>
+      <ul>
+        <li>Designed a Selenium WebDriver + TestNG Page Object Model (POM) framework for the Servigistics SPM product suite, reducing regression execution time by <strong>30%</strong>.</li>
+        <li>Automated end-to-end UI and REST API test coverage using Rest Assured and Postman with Cucumber BDD integration for enterprise SLM and PLM workflows.</li>
+        <li>Integrated full automation test suites into Jenkins CI/CD pipelines, enabling continuous quality validation across Dev, QA, and Staging environments.</li>
+        <li>Executed Sanity, Smoke, Regression, and Functional test cycles; tracked and triaged defects using JIRA and Zephyr with detailed sprint-based reporting.</li>
+        <li>Provisioned test environments using Kubernetes and configured SQL, Oracle, and Snowflake databases across Windows and Linux server environments.</li>
+        <li>Developed an auto-upgrade automation job, eliminating manual overhead for environment release upgrades across the Servigistics platform.</li>
+        <li>Led test estimation, sprint planning, and QA mentoring across cross-functional Agile Scrum teams.</li>
+        <li>Enhanced data reporting using Intellicus and validated forecasting accuracy with SQL-based statistical methods.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Software QA Engineer</span>
+        <span class="job-dates">Jul 2019 – Jul 2022</span>
+      </div>
+      <div class="job-company">Coforge &nbsp;|&nbsp; Noida, India</div>
+      <ul>
+        <li>Built reusable POM-based Selenium Java automation scripts with data-driven testing via TestNG, ensuring high maintainability and scalable test coverage.</li>
+        <li>Delivered end-to-end API and UI validation for <strong>100+ product features</strong>, contributing to a 25% improvement in user satisfaction scores.</li>
+        <li>Managed full test lifecycle using JIRA and Zephyr for defect tracking, test case management, and release reporting across multiple Agile sprints.</li>
+        <li>Collaborated across 5 cross-functional Agile teams, consistently achieving sprint quality milestones and on-time release readiness.</li>
+        <li>Maintained version control using Git and Bitbucket; integrated automated tests into CI/CD pipelines for faster delivery cycles.</li>
+        <li>Validated ETL pipelines and data integrity using SQL Server queries across financial and data service workflows.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────────────── -->
+  <section>
+    <h4>Projects</h4>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Hypernova</span>
+        <span class="job-dates">Dec 2019 – Jul 2020</span>
+      </div>
+      <ul>
+        <li>Analysed requirement documents and developed comprehensive test cases covering functional and edge-case scenarios.</li>
+        <li>Prepared Test Plans and executed Regression testing; tracked and resolved defects via JIRA and Zephyr.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">DAAS (Data as a Service)</span>
+        <span class="job-dates">Aug 2020 – Sep 2021</span>
+      </div>
+      <ul>
+        <li>Developed web automation test cases using Selenium WebDriver + TestNG POM for 80+ identified automation scenarios.</li>
+        <li>Performed SQL-based data validation and ETL pipeline quality checks against relational databases.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">MutualFundDesk</span>
+        <span class="job-dates">Nov 2021 – Mar 2022</span>
+      </div>
+      <ul>
+        <li>Participated in Scrum ceremonies — sprint planning, retrospectives, and sprint health analysis.</li>
+        <li>Delivered product demos to the Product Owner before sprint sign-off, ensuring quality alignment.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Servigistics (SPM)</span>
+        <span class="job-dates">Jul 2022 – Present</span>
+      </div>
+      <ul>
+        <li>Validated forecasting data accuracy using SQL and statistical methods including average, weighted average, and trend analysis.</li>
+        <li>Participated in forecasting workflows to predict future product demand from historical data patterns.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ──────────────────────────────────────────────────── -->
+  <section>
+    <h4>Education</h4>
+
+    <div class="edu-row">
+      <span class="edu-degree">B.Tech — Dr. A.P.J. Abdul Kalam Technical University (AKTU)</span>
+      <span class="edu-year">2015 – 2019</span>
+    </div>
+    <div class="edu-detail">Aggregate: 77%</div>
+
+    <div class="edu-row" style="margin-top:6px">
+      <span class="edu-degree">Intermediate (12th Standard)</span>
+      <span class="edu-year">2015</span>
+    </div>
+    <div class="edu-detail">Percentage: 72.3%</div>
+  </section>
+
+</div><!-- /page -->
+
+<script>
+  // Auto-open print dialog if visited with ?print=1
+  if (new URLSearchParams(location.search).get('print') === '1') window.print();
+</script>
+</body>
+</html>
