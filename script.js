@@ -7,19 +7,30 @@ const focusValue = document.getElementById('focusValue');
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
+document.documentElement.classList.add('js-enabled');
 
-revealTargets.forEach((target) => observer.observe(target));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -8% 0px' }
+  );
+
+  revealTargets.forEach((target) => observer.observe(target));
+
+  // Safety net: if any element still has not animated in, force visibility.
+  setTimeout(() => {
+    revealTargets.forEach((target) => target.classList.add('visible'));
+  }, 1800);
+} else {
+  revealTargets.forEach((target) => target.classList.add('visible'));
+}
 
 let recruiterMode = false;
 recruiterToggle.addEventListener('click', () => {
